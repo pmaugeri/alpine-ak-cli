@@ -16,6 +16,13 @@ RUN apk add npm
 RUN akamai install property
 RUN ln -s /root/data/.edgerc /root/.edgerc
 
+# Install Akamai CLI packages
+RUN akamai install image-manager
+
+# Install tools
+RUN apk add bind-tools
+RUN apk add curl
+
 # Customizations
 ENV ENV="/etc/profile"
 RUN echo "alias ll='ls -la'" >> "$ENV"
