@@ -31,3 +31,6 @@ Run the container:
 ```
 docker run --mount source=alpine-ak-cli-volume,target=/root/data -it alpine-ak-cli
 ```
+
+NB: the file /root/.edgerc is a symbolic link to /root/data/.edgerc on the persistent volume.
+
