@@ -8,8 +8,9 @@ Main packages included:
 * NodeJS v8.11.4 and NPM
 * Dev libraries: libffi-dev openssl-dev python3-dev
 * curl v7.61.1
+* [jq v1.6-r0](https://stedolan.github.io/jq/)
 * bind-tools v9.12.2-P1 (dig)
-* Akamai CLI 1.1.0
+* Akamai CLI 1.1.2
 * Akamai edgegrid-python
 * Akamai CLI packages included: image-manager, property
 
