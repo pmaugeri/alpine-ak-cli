@@ -22,6 +22,7 @@ RUN akamai install image-manager
 # Install tools
 RUN apk add bind-tools
 RUN apk add curl
+RUN apk add jq
 
 # Customizations
 ENV ENV="/etc/profile"
