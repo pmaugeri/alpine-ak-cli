@@ -9,9 +9,9 @@ RUN apk add build-base
 RUN apk add libffi-dev openssl-dev python3-dev
 RUN pip3 install edgegrid-python
 RUN apk add nodejs
-RUN wget https://github.com/akamai/cli/releases/download/1.0.2/akamai-1.0.2-linux386
-RUN chmod +x akamai-1.0.2-linux386
-RUN mv akamai-1.0.2-linux386 /usr/bin/akamai
+RUN wget https://github.com/akamai/cli/releases/download/1.1.2/akamai-1.1.2-linux386
+RUN chmod +x akamai-1.1.2-linux386
+RUN mv akamai-1.1.2-linux386 /usr/bin/akamai
 RUN apk add npm
 RUN akamai install property
 RUN ln -s /root/data/.edgerc /root/.edgerc
