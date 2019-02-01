@@ -1,6 +1,8 @@
 # Docker image alpine-ak-cli
 
-A Docker container image with pre-installed Akamai Command Line Interface (CLI).
+An experimental project to build a Docker container image with pre-installed Akamai Command Line Interface (CLI).
+
+**Nota Bene:** if you are looking for the official Akamai Docker image with CLI, you should check out [akamai/cli](https://github.com/akamai/cli) repository.
 
 Main packages included:
 * Python v3.6.6
