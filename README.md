@@ -4,7 +4,7 @@ An experimental project to build a Docker container image with pre-installed Aka
 
 **Nota Bene:** if you are looking for the official Akamai Docker image with CLI, you should check out [akamai/cli](https://github.com/akamai/cli) repository.
 
-Base Linux distribution: Alpline 3.9
+Base Linux distribution: [Alpine 3.9|https://alpinelinux.org/posts/Alpine-3.9.3-released.html]
 
 Main packages included:
 * Python v3.6.8
