@@ -8,37 +8,25 @@ RUN apk add --no-cache python3 && \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
     rm -r /root/.cache
 
-RUN apk update
-RUN apk add ca-certificates
-RUN update-ca-certificates
-RUN apk add wget
+RUN apk update && \
+	apk add ca-certificates && \
+	update-ca-certificates && \
+	apk add wget && \
+	pip3 install --upgrade pip && \
+	pip3 install --upgrade setuptools && \
+	apk add build-base libffi-dev openssl-dev python3-dev nodejs bind-tools curl jq && \
+	pip3 install --no-cache-dir edgegrid-python
 
-RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade setuptools
-RUN apk add build-base
-RUN apk add libffi-dev openssl-dev python3-dev
-RUN pip3 install edgegrid-python
-RUN apk add nodejs
+# Install Akamai CLI 1.1.3, and packages 'property' and 'image-manager'
+RUN wget https://github.com/akamai/cli/releases/download/1.1.3/akamai-1.1.3-linux386 && \
+	chmod +x akamai-1.1.3-linux386 && \
+	mv akamai-1.1.3-linux386 /usr/bin/akamai && \
+	ln -s /root/data/.edgerc /root/.edgerc && \
+	apk add --no-cache --virtual .build-deps npm && \
+	akamai install property && \
+	akamai install image-manager && \
+	apk del .build-deps
 
-# Install Akamai CLI 1.1.3
-RUN wget https://github.com/akamai/cli/releases/download/1.1.3/akamai-1.1.3-linux386
-#RUN wget https://github.com/akamai/cli/releases/download/1.1.2/akamai-1.1.2-linux386
-RUN chmod +x akamai-1.1.3-linux386
-#RUN chmod +x akamai-1.1.2-linux386
-RUN mv akamai-1.1.3-linux386 /usr/bin/akamai
-#RUN mv akamai-1.1.2-linux386 /usr/bin/akamai
-RUN ln -s /root/data/.edgerc /root/.edgerc
-
-# Install Akamai CLI packages
-RUN apk add npm
-RUN akamai install property
-RUN akamai install image-manager
-
-# Install additional optional tools
-RUN apk add bind-tools
-RUN apk add curl
-RUN apk add jq
-
-## Customizations
+# Customizations
 ENV ENV="/etc/profile"
 RUN echo "alias ll='ls -la'" >> "$ENV"
