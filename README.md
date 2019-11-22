@@ -14,7 +14,7 @@ Main packages included:
 * curl v7.64.0
 * [jq](https://stedolan.github.io/jq/)
 * bind-tools v9.12.2-P1 (dig)
-* Akamai CLI 1.1.3
+* Akamai CLI 1.1.4
 * Akamai edgegrid-python
 * Akamai CLI packages included: image-manager, property
 
